@@ -9,25 +9,26 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
-public class Todo implements Serializable {
+public class ToDo {
 
     @NotNull
-    String id;
+    private String id;
     @NotNull
     @NotBlank
-    String desc;
-    boolean completed;
-    LocalDateTime created;
-    LocalDateTime modified;
+    private String description;
+    private LocalDateTime created;
+    private LocalDateTime modified;
+    private boolean completed;
 
-    public Todo(){
+    public ToDo(){
         LocalDateTime date = LocalDateTime.now();
         this.id = UUID.randomUUID().toString();
         this.created = date;
         this.modified = date;
     }
-    public Todo(String description){
+
+    public ToDo(String description){
         this();
-        this.desc = description;
+        this.description = description;
     }
 }
